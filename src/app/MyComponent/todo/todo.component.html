@@ -1,0 +1,17 @@
+<h1 class="text-5xl text-center mb-6">Todo Lists </h1>
+<div class="grid grid-cols-8 gap-4">
+  <div class="col-start-3 col-end-5">
+    <app-add-todo (todoAdd)="todoAdd($event)"></app-add-todo>
+  </div>
+
+  <div class="col-start-5 col-end-7">
+    <h1 class="mx-8 text-3xl">Your Todos</h1>
+    <div *ngIf="this.todos.length === 0; else elseBlock "> No Todos to display</div>
+    <ng-template #elseBlock>
+      <div *ngFor="let todo of todos" class="m-3">
+        <app-todo-item [todo]="todo" (todoDelete)="deleteTodo($event)"
+          (todoCheckBox)="toggleTodo($event)"></app-todo-item>
+      </div>
+    </ng-template>
+  </div>
+</div>

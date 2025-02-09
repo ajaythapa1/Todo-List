@@ -1,0 +1,14 @@
+<div class="my-3 mx-8">
+    <h4 [ngClass]="{'text-3xl': true, 'strike': !todo.active}">{{todo.title}}</h4>
+    <p [ngClass]="{'strike': !todo.active}">{{todo.description}}</p>
+    <div class="flex items-center h-5">
+        <input id="remember + {{todo.sno}}" type="checkbox" [checked]="!todo.active"
+            class="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+            (click)="onCheckBoxClick(todo.sno)" />
+        <label for="remember + {{todo.sno}}"
+            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Done</label>
+    </div>
+    <button type="button"
+        class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+        (click)="onClicks(todo)">Delete</button>
+</div>
